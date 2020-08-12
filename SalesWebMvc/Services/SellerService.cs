@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SalesWebMvc.Services
 {
-    public class SellerService 
+    public class SellerService
     {
         private readonly SalesWebMvcContext _context;
         public SellerService(SalesWebMvcContext context)
@@ -18,5 +18,13 @@ namespace SalesWebMvc.Services
         {
             return _context.Seller.ToList();
         }
+
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
+
+
     }
 }
